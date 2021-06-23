@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FlatList, KeyboardAvoidingView, Platform, StyleSheet, TextInput } from 'react-native';
+import { FlatList, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import TodoItem from '../TodoItem';
 
-export default function TabOneScreen() {
+export default function TabOneScreen({ navigation }: any) {
 
 
   const [title, setTitle] = useState("")
@@ -26,7 +26,10 @@ export default function TabOneScreen() {
     setTodos(newTodos)
   }
 
+
   return (
+
+
     <KeyboardAvoidingView style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 200 : 0}
@@ -41,8 +44,8 @@ export default function TabOneScreen() {
         renderItem={({ item, index }) => (<TodoItem todo={item} onSubmit={() => creatNewItem(index + 1)} />)}
         style={{ width: "100%" }}
       />
-
     </KeyboardAvoidingView>
+
   );
 
 }
