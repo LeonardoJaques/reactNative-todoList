@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FC } from 'react'
 import { TextInput, View } from 'react-native'
 import CheckBox from "../CheckBox"
 
