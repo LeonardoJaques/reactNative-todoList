@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { FC } from 'react'
 import { TextInput, View } from 'react-native'
 import CheckBox from "../CheckBox"
 
+
+
 interface TodoItemProps {
   todo: {
-    id: string
+    id: number
     content: string
     isCompleted: boolean
   },
   onSubmit: () => void
 }
 
-const TodoItem = ({ todo, onSubmit }: TodoItemProps) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, onSubmit }) => {
   const [isChecked, setIsChecked] = useState(false)
   const [content, setContent] = useState("")
   const input = useRef(null)

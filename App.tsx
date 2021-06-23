@@ -4,20 +4,22 @@ import TodoItem from './src/components/TodoItem';
 
 export default function App() {
 
-  let id = ''
+
   const [title, setTitle] = useState("")
+
+  
   const [todos, setTodos] = useState([
-    { id: "1", content: "Buy milk", isCompleted: false },
-    { id: "2", content: "Buy bear", isCompleted: false },
-    { id: "3", content: "Buy meat", isCompleted: false },
-    { id: "4", content: "Buy water", isCompleted: false },
+    { id: 1, content: "Buy milk", isCompleted: false },
+    { id: 2, content: "Buy bear", isCompleted: false },
+    { id: 3, content: "Buy meat", isCompleted: false },
+    { id: 4, content: "Buy water", isCompleted: false },
   ])
 
 
   const creatNewItem = (atIndex: number) => {
     const newTodos = [...todos]
     newTodos.splice(atIndex, 0, {
-      id: id,
+      id: todos.length + 1,
       content: '',
       isCompleted: false
     })
