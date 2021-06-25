@@ -1,0 +1,16 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "eslint.lintTask.enable": true,
+  "eslint.onIgnoredFiles": "warn",
+  "eslint.packageManager": "yarn",
+  "prettier.enableDebugLogs": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.resolveGlobalModules": true,
+  "prettier.useTabs": true,
+  "prettier.withNodeModules": true,
+  "prettier.singleQuote": true,
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.requireConfig": true,
+  "prettier.requirePragma": true
+}
