@@ -1,22 +1,33 @@
 
 import React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ProjectsScreen from '../components/screens/ProjectsScreen';
 import ToDoScreen from '../components/screens/ToDoScreen';
 import SignInScreen from '../components/screens/SignInScreen';
 import SignUpScreen from '../components/screens/SignUpScreen';
+import SplashScreen from '../components/screens/SplashScreen';
+
 const Stack = createStackNavigator();
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn" headerMode='float'>
+      <Stack.Navigator initialRouteName="Splash" headerMode='float'>
+        <Stack.Screen
+          name='Splash'
+          component={SplashScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="SignIn"
           component={SignInScreen}
           options={{
+            headerShown: false,
             title: 'Sign In',
             headerStyle: {
               backgroundColor: '#201917',
@@ -24,9 +35,7 @@ const Navigation = () => {
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-
             },
-
           }}
         />
 
@@ -41,7 +50,6 @@ const Navigation = () => {
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-
             },
           }}
         />
@@ -50,15 +58,17 @@ const Navigation = () => {
           name="Home"
           component={ProjectsScreen}
           options={{
-            title: 'Home ', headerStyle: {
+            title: 'Home ',
+            headerShown: false,
+            headerStyle: {
               backgroundColor: '#463b38',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-
             },
-          }} />
+          }
+          } />
         <Stack.Screen
           name="ToDoScreen"
           component={ToDoScreen}
@@ -69,7 +79,6 @@ const Navigation = () => {
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-
             },
           }}
         />

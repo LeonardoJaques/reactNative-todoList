@@ -23,7 +23,7 @@ const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
     navigation.navigate('ToDoScreen', { id: project.id })
   }
   return (
-    <SafeAreaView style={{ backgroundColor: '#6a51ae' }} >
+    <SafeAreaView style={{ backgroundColor: '#2c2933', borderRadius: 5, marginTop: 10 }} >
       <Pressable onPress={onPress} style={styles.root}>
         <View style={styles.iconContainer}>
           <Icon
