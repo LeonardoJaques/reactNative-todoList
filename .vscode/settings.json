@@ -12,5 +12,5 @@
   "prettier.singleQuote": true,
   "prettier.vueIndentScriptAndStyle": true,
   "prettier.requireConfig": true,
-  "prettier.requirePragma": true
+  "prettier.trailingComma": "all"
 }

@@ -1,34 +1,42 @@
+import { gql, useQuery } from '@apollo/client';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { Alert, FlatList, StyleSheet } from 'react-native';
 import { View } from 'react-native';
 import ProjectItem from '../ProjectItem';
 
+const MY_PROJECTS = gql`
+  query myTaskList {
+    myTaskList {
+      id
+      title
+      createdAt
+    }
+  }
+`;
+
 const ProjectsScreen = () => {
-  const [project] = useState([
-    {
-      id: 1,
-      title: 'Project 1',
-      createdAt: '2d',
-    },
-    {
-      id: 2,
-      title: 'Project 2',
-      createdAt: '2d',
-    },
-    {
-      id: 3,
-      title: 'Project 3',
-      createdAt: '2d',
-    },
-  ]);
+  const [project, setProjects] = useState([]);
+  const { data, error } = useQuery(MY_PROJECTS);
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (error) {
+      Alert.alert('Error fetching projects', error.message);
+      navigation.navigate('SignUp');
+    }
+  }, [error, navigation]);
+
+  useEffect(() => {
+    if (data) {
+      setProjects(data.myTaskList);
+    }
+  }, [data]);
+
   return (
     <View style={styles.container}>
-      <FlatList
-        data={project}
-        renderItem={({ item }) => <ProjectItem project={item} />}
-        style={styles.flatList}
-      />
+      <FlatList data={project} renderItem={({ item }) => <ProjectItem project={item} />} style={styles.flatList} />
     </View>
   );
 };
