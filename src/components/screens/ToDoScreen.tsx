@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import { useRoute } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
@@ -19,13 +19,37 @@ const GET_PROJECT = gql`
     }
   }
 `;
-let id = 4;
+
+const CREATE_TODO = gql`
+  mutation createToDo($content: String!, $taskListId: ID!) {
+    createToDo(content: $content, taskListId: $taskListId) {
+      id
+      content
+      isCompleted
+
+      taskList {
+        id
+        progress
+        todos {
+          id
+          content
+          isCompleted
+        }
+      }
+    }
+  }
+`;
 const ToDoScreen = () => {
   const [project, setProject] = useState(null);
   const [title, setTitle] = useState('');
 
   const route = useRoute();
-  const { data, error, loading } = useQuery(GET_PROJECT, { variables: { id: route.params.id } });
+
+  const id = route.params?.id;
+  const { data, error, loading } = useQuery(GET_PROJECT, { variables: { id } });
+  const [createTodo, { data: createTodoData, error: createTodoError }] = useMutation(CREATE_TODO, {
+    refetchQueries: GET_PROJECT,
+  });
 
   useEffect(() => {
     if (error) {
@@ -41,6 +65,13 @@ const ToDoScreen = () => {
   }, [data]);
 
   const creatNewItem = (atIndex: number) => {
+    createTodo({
+      variables: {
+        content: '',
+        taskListId: id,
+      },
+    });
+
     //   const newTodos = [...todos];
     //   newTodos.splice(atIndex, 0, {
     //     id: todos.length + 1,
@@ -60,7 +91,7 @@ const ToDoScreen = () => {
       keyboardVerticalOffset={Platform.OS === 'ios' ? 200 : 0}>
       <TextInput style={styles.title} value={title} onChangeText={setTitle} placeholder={'Title'} />
       <FlatList
-        data={project.todos}
+        data={project?.todos}
         renderItem={({ item, index }) => <TodoItem todo={item} onSubmit={() => creatNewItem(index + 1)} />}
         style={{ width: '100%' }}
       />
