@@ -1,4 +1,10 @@
-## React Native -Todo List
+## React Native - Todo List -- Force
+
+> * MongoDB is a cross-platform document-oriented database program.
+> * GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
+> * React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.
+> * Apollo platform helps you build, query, and manage a data graph: a unified data layer that enables applications to interact with data from any combination of      connected data stores and external APIs
+
 
 * ✔ Setup and test project @done (7/1/2021, 9:12:42 PM)
   * ✔ TODOlIST: @done (22/06/2021 22:09:15)
