@@ -7,7 +7,7 @@
 
 
 * ✔ Setup and test project @done (7/1/2021, 9:12:42 PM)
-  * ✔ TODOlIST: @done (22/06/2021 22:09:15)
+  * ✔ TODOLIST: @done (22/06/2021 22:09:15)
   *  ✔ Checkbox component @done (22/06/2021 17:48:18)
   *  ✔ ToDo Item component @done (22/06/2021 17:48:20)
   *  ✔ Render a list of ToDos @done (22/06/2021 17:48:23)
