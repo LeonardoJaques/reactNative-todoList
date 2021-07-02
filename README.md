@@ -13,7 +13,7 @@
   *  ☐ Task List component
    *   ☐ Human readable date using MomentJS
     *  ✔ Progress bar @done (7/1/2021, 9:12:05 PM)
-    ✔ List of Task Lists @done (23/06/2021 14:16:57)
+   * ✔ List of Task Lists @done (23/06/2021 14:16:57)
 
 * ✔ Navigation @done (6/25/2021, 7:45:48 PM)
      * ✔ Setup Navigation structure @done (6/25/2021, 5:52:31 PM)
@@ -37,8 +37,8 @@
   ☐ Create new Task List
   ☐ Delete ToDo item
 
-☐ Extra
-  ☐ Add members to a TaskList(by E-mail)
-  ☐ Render list members
-  ☐ Add due dates to TaskList and to Todo Items
-  ☐ Assign TaskList and Todo Items to users
+ ☐ Extra
+ * ☐ Add members to a TaskList(by E-mail)
+ * ☐ Render list members
+ * ☐ Add due dates to TaskList and to Todo Items
+ * ☐ Assign TaskList and Todo Items to users
