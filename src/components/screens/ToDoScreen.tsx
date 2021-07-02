@@ -13,6 +13,7 @@ const GET_PROJECT = gql`
       title
       createdAt
       todos {
+        id
         content
         isCompleted
       }
@@ -46,8 +47,8 @@ const ToDoScreen = () => {
   const route = useRoute();
 
   const id = route.params?.id;
-  const { data, error, loading } = useQuery(GET_PROJECT, { variables: { id } });
-  const [createTodo, { data: createTodoData, error: createTodoError }] = useMutation(CREATE_TODO, {
+  const { data, error } = useQuery(GET_PROJECT, { variables: { id } });
+  const [createTodo] = useMutation(CREATE_TODO, {
     refetchQueries: GET_PROJECT,
   });
 
@@ -64,7 +65,7 @@ const ToDoScreen = () => {
     }
   }, [data]);
 
-  const creatNewItem = (atIndex: number) => {
+  const creatNewItem = () => {
     createTodo({
       variables: {
         content: '',

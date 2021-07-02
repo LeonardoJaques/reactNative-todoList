@@ -37,9 +37,6 @@ const ToDoItem = ({ todo, onSubmit }: ToDoItemProps) => {
   const [content, setContent] = useState('');
 
   const [updateItem] = useMutation(UPDATE_TODO);
-  if (updateItem === 'undefined') {
-    return null;
-  }
 
   const input = useRef<any>(null);
 
@@ -47,7 +44,7 @@ const ToDoItem = ({ todo, onSubmit }: ToDoItemProps) => {
     await updateItem({
       variables: {
         id: todo.id,
-        content: todo.content,
+        content,
         isCompleted: isChecked,
       },
     });
