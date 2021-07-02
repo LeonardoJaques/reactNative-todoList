@@ -39,12 +39,16 @@
   * ✔ Query My TaskList @done (6/30/2021, 11:39:26 PM)
   * ✔ Create new ToDo item @done (7/1/2021, 11:14:09 AM)
   * ✔ Update ToDo item @done (7/1/2021, 9:08:16 PM)
-  ☐ Update a Task List(Title)
-  ☐ Create new Task List
-  ☐ Delete ToDo item
+  *☐ Update a Task List(Title)
+  *☐ Create new Task List
+  *☐ Delete ToDo item
 
  ☐ Extra
  * ☐ Add members to a TaskList(by E-mail)
  * ☐ Render list members
  * ☐ Add due dates to TaskList and to Todo Items
  * ☐ Assign TaskList and Todo Items to users
+ * ☐ Nested Todo Items
+ * ☐ Offline support(On-device Persistence)
+ * ☐ Listen to data changes with GraphQl Subscriptions
+ * ☐ Use roles: Viewer, Editor, Owener
