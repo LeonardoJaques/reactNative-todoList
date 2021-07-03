@@ -32,7 +32,6 @@ const CREATE_TODO = gql`
         id
         progress
         todos {
-          id
           content
           isCompleted
         }
